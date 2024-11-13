@@ -1,0 +1,27 @@
+Once you create a Model it create a database table automatically
+i am using MYSQL is also fast in retrieving the data from database 
+DELETE: 127.0.0.1:3030/api/recipes/:id
+
+this api used to delete single row in the database
+
+GET: 127.0.0.1:3030/api/recipes?page=1
+
+This is api is used to get all recipes from the 
+database and paginate the data 
+
+
+ GET: 127.0.0.1:3030/api/recipes/:id
+
+ this select a single recipe from the database table
+
+ PUT: 127.0.0.1:3030/api/recipes/:id
+
+ this is used to update a single row in database table
+
+
+ DELETE: 127.0.0.1:3030/api/recipes/:id
+
+  this is used to update a single row in database table
+
+
+  i used supertest for unit testing the file is recipes.test.js
