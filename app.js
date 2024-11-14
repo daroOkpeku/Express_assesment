@@ -9,6 +9,7 @@ const {
   recipes_single,
   recipes_update,
   reciep_delete,
+  upload_image_send
 } = require("./Controller/Controller");
 const app = express();
 const corsOption = {
@@ -34,7 +35,8 @@ app.get("/api", (request, response) => {
 app.post("/api/recipes", upload, create_recipes);
 app.get("/api/recipes", recipes_paginate);
 app.get("/api/recipes/:id", recipes_single);
-app.put("/api/recipes/:id", upload, recipes_update);
+app.put("/api/recipes/:id",  recipes_update);
+app.post("/api/image_upload", upload, upload_image_send)
 app.delete("/api/recipes/:id", reciep_delete);
 const port = process.env.PORT || 3030;
 if (process.env.NODE_ENV !== "test") {

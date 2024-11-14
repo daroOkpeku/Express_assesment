@@ -98,6 +98,17 @@ const recipes_single = async (request, response) => {
   }
 };
 
+const upload_image_send = async (request, response)=>{
+
+  if (request.file) {
+    const imageUploadResponse = await imageupload(request.file);
+    response
+    .status(200)
+    .json({ success: imageUploadResponse?.url });
+  }
+
+}
+
 const recipes_update = async (request, response) => {
   const id = parseInt(request.params.id);
 
@@ -105,10 +116,10 @@ const recipes_update = async (request, response) => {
     return response.status(400).json({ error: "Invalid ID" });
   }
 
-  if (request.file) {
-    const imageUploadResponse = await imageupload(request.file);
-    request.body.image = imageUploadResponse?.url;
-  }
+  // if (request.file) {
+  //   const imageUploadResponse = await imageupload(request.file);
+  //   request.body.image = imageUploadResponse?.url;
+  // }
   await recipes_validation.validate(request.body, { abortEarly: false });
 
   await Recieps.update(
@@ -154,4 +165,5 @@ module.exports = {
   recipes_single,
   recipes_update,
   reciep_delete,
+  upload_image_send
 };
