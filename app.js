@@ -20,9 +20,9 @@ app.use(express.json());
 
 app.use(express.urlencoded({ extended: true }));
 
-// app.get("/api", (request, response) => {
-//   response.json({ message: "hello we are here" });
-// });
+app.get("/api", (request, response) => {
+  response.json({ message: "hello we are here" });
+});
 
 app.post("/api/recipes", upload, create_recipes);
 app.get("/api/recipes", recipes_paginate);

@@ -56,6 +56,7 @@ const create_recipes = async (request, response) => {
 const recipes_paginate = async (request, response) => {
   try {
     const pageNumber = parseInt(request.query.page) || 1;
+    console.log(pageNumber)
     const itemsPerPage = 5;
 
     const offset = (pageNumber - 1) * itemsPerPage;
