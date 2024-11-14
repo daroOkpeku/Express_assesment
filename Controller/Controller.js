@@ -36,7 +36,7 @@ const create_recipes = async (request, response) => {
     //   request.body.image = imageUploadResponse?.url;
     // }
     await recipes_validation.validate(request.body, { abortEarly: false });
-    Recieps.create({
+    await Recieps.create({
       title: request.body.title,
       ingredients: request.body.ingredients,
       servings: request.body.servings,
