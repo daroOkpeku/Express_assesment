@@ -31,10 +31,10 @@ const imageupload = async (file) => {
 
 const create_recipes = async (request, response) => {
   try {
-    if (request.file) {
-      const imageUploadResponse = await imageupload(request.file);
-      request.body.image = imageUploadResponse?.url;
-    }
+    // if (request.file) {
+    //   const imageUploadResponse = await imageupload(request.file);
+    //   request.body.image = imageUploadResponse?.url;
+    // }
     await recipes_validation.validate(request.body, { abortEarly: false });
     Recieps.create({
       title: request.body.title,

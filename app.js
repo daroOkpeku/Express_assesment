@@ -32,7 +32,7 @@ app.get("/api", (request, response) => {
 });
 
 
-app.post("/api/recipes", upload, create_recipes);
+app.post("/api/recipes",  create_recipes);
 app.get("/api/recipes", recipes_paginate);
 app.get("/api/recipes/:id", recipes_single);
 app.put("/api/recipes/:id",  recipes_update);
