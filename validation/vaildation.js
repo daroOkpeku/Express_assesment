@@ -10,7 +10,7 @@ const recipes_validation = yup.object().shape({
     .string()
     .url("Image must be a valid URL")
     .matches(/^https:\/\/ik\.imagekit\.io\//, "Image must be from ImageKit") // Validate ImageKit URL pattern
-    .nullable("Image is required"),
+    .nullable(true),
 });
 
 module.exports = { recipes_validation };
