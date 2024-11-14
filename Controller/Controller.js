@@ -35,10 +35,10 @@ const create_recipes = async (request, response) => {
     //   const imageUploadResponse = await imageupload(request.file);
     //   request.body.image = imageUploadResponse?.url;
     // }
-    response.status(201).json({ body: request.body});
+    
     await recipes_validation.validate(request.body, { abortEarly: false });
     //
-    const newRecipe = await Recieps.create({
+    await Recieps.create({
       title: request.body.title,
       ingredients: request.body.ingredients,
       servings: request.body.servings,
@@ -46,7 +46,7 @@ const create_recipes = async (request, response) => {
       image: request.body.image,
     });
 
-    response.status(201).json({ success: "You have successfully registered", recipe: newRecipe  });
+    response.status(201).json({ success: "You have successfully registered" });
   } catch (err) {
     response.status(400).json({
       message: "Validation error",
