@@ -110,6 +110,7 @@ const recipes_update = async (request, response) => {
     request.body.image = imageUploadResponse?.url;
   }
   await recipes_validation.validate(request.body, { abortEarly: false });
+
   await Recieps.update(
     {
       title: request.body.title,
