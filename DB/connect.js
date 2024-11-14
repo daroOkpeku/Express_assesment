@@ -4,7 +4,7 @@ const { Sequelize, DataTypes } = require("sequelize");
 //   host: "127.0.0.1",
 //   dialect: "mysql",
 // });
-const seq = new Sequelize("mysql://root:OLnEjTZIEPTmXqiNVWBTcRMvuWpaCthK@junction.proxy.rlwy.net:47817/railway");
+const seq = new Sequelize("mysql://root:EoAEXUMTXrhKuhNRWjgseywdgwcSkgRs@junction.proxy.rlwy.net:45497/railway");
 
 seq
   .authenticate()
