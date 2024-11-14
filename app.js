@@ -12,15 +12,19 @@ const {
 } = require("./Controller/Controller");
 const app = express();
 const corsOption = {
-  origin: "*",
+  origin: "http://localhost:3000",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE", 
-  allowedHeaders: ["Content-Type", "Authorization"]
+  allowedHeaders: ["Content-Type", "Authorization"],
+  credentials: true,
 };
 
 app.use(cors(corsOption));
-app.use(express.json());
+// app.use(express.json());
 
-app.use(express.urlencoded({ extended: true }));
+// app.use(express.urlencoded({ extended: true }));
+
+app.use(express.json({ limit: '10mb' })); // Adjust the limit as needed
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 app.get("/api", (request, response) => {
   response.json({ message: "hello we are here" });
